@@ -1,2 +1,2 @@
 # codesignal_problems
-my codesignal solutons
+my codesignal solutions

@@ -1,21 +1,20 @@
 def solution(inputString):
-    b = dict()
+    dict_d = dict()
     
     for char in inputString:
-        
         # check to see if char number in the dict
-        if ord(char) in b:
-            b[ord(char)] += 1
+        if ord(char) in dict_d:
+            dict_d[ord(char)] += 1
         else:
-            b[ord(char)] = 1
+            dict_d[ord(char)] = 1
 
     # go through the keys and make sure we have 
-    for i in b.keys():
+    for i in dict_d.keys():
         # base case, continue
-        if i == 97:
+        if i == ord('a'):
             continue
-        if i-1 in b:
-            if b[i] > b[i-1]:
+        if i-1 in dict_d:
+            if dict_d[i] > dict_d[i-1]:
                 return False
         else: return False
     return True

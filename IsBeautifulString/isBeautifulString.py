@@ -3,20 +3,22 @@ def solution(inputString):
     
     for char in inputString:
         # check to see if char number in the dict
-        if ord(char) in dict_d:
-            dict_d[ord(char)] += 1
+        if char in dict_d:
+            dict_d[char] += 1
         else:
-            dict_d[ord(char)] = 1
+            dict_d[char] = 1
 
-    # go through the keys and make sure we have 
+    # go through the keys and make sure we have count b<a, c<b, etc.
     for i in dict_d.keys():
         # base case, continue
-        if i == ord('a'):
+        if i == 'a':
             continue
-        if i-1 in dict_d:
-            if dict_d[i] > dict_d[i-1]:
+        if chr(ord(i)-1) in dict_d:
+            # if any letter count is greater than the prev alpha letter count, ret False
+            if dict_d[i] > dict_d[chr(ord(i)-1)]:
                 return False
-        else: return False
+        else: 
+            return False
     return True
 
 if __name__ == "__main__":
